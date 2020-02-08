@@ -52,6 +52,11 @@ public class Test extends BaseTest {
         depositPageSteps.tickCheckbox(checkBoxName);
     }
 
+    @Когда("^Сделать выбор: отметить или не отметить поле \"(.+)\"$")
+    public void pickCheckBox(String checkBoxNameWithdraw, String choice) {
+        DepositPageSteps depositPageSteps = new DepositPageSteps();
+        depositPageSteps.tickCheckbox(checkBoxNameWithdraw, choice);
+    }
     @Тогда("^Проверить, что поля равны значениям:$")
     public void checkResults(DataTable table) {
         DepositPageSteps depositPageSteps = new DepositPageSteps();

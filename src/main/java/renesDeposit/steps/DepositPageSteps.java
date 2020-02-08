@@ -64,6 +64,19 @@ public class DepositPageSteps extends BaseTest{
         }
     }
 
+    public void tickCheckbox(String checkBoxName, String choice) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", depositPage.startDepositButton);
+        for(WebElement element : depositPage.checkBoxes) {
+            String checkBoxText = element.findElement(By.xpath(".//span[text()]")).getText();
+            if(checkBoxName.equalsIgnoreCase(checkBoxText)) {
+                if(choice.equalsIgnoreCase("да")) {
+                    WebElement checkInput = element.findElement(By.xpath(".//span[@class='calculator__check-block-input']"));
+                    checkInput.click();
+                }
+            }
+        }
+    }
+
     public void checkCalc(String fieldName, String sum) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", depositPage.calcTitle);
         if (fieldName.equalsIgnoreCase("Есть сейчас")) {
