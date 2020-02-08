@@ -10,15 +10,31 @@ public class DepositPage extends RenesBasePage{
     public DepositPage(WebDriver driver) {
         super(driver);
     }
+
+    @FindBy(xpath = "//h2[@class='calculator-block__title block-title']")
+    public WebElement calcTitle;
+
+    @FindBy(xpath = "//div[@class='calculator__currency-label']")
+    public WebElement currencyTitle;
+
     @FindBy(xpath = "//div[@class='calculator__currency-content']//span[text()]")
     public List<WebElement> currencyForDepositList;
 
-    @FindBy(xpath = "//label[@class = 'calculator__slide-input-label left-label']")
-    public WebElement startDepositTitle;
+    @FindBy(xpath = "//div[@class='calculator__slide-section']")
+    public List<WebElement> slideElements;
 
-    @FindBy(xpath = "//input[@name ='amount']")
-    public WebElement inputForSumOfDeposit;
+    @FindBy(xpath = ".//span[@class = 'js-calc-amount']")
+    public WebElement currentSum;
+
+    @FindBy(xpath = "//label[@class='calculator__check-block']")
+    public List<WebElement> checkBoxes;
+
+    @FindBy(xpath = "//div[@class='calculator__btn-row']")
+    public WebElement startDepositButton;
 
     @FindBy(xpath = "//span[@class='js-calc-amount']")
-    public WebElement currentSum;
+    public WebElement amountOfMoneyNow;
+
+    @FindBy(xpath = "//span[@class='js-calc-result js-calc-result-noanim']")
+    public WebElement futureAmountOfMoney;
 }
